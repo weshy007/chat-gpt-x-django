@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form method="post" action="{% url 'quiz' %}">
+        {% csrf_token %}
+        <label for="user_response">Enter your question:</label>
+        <input type="text" id="user_response" name="user_response" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if answer %}
+        <div>
+            <h3>AI Answer:</h3>
+            <p>{{ answer }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
